@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import formatCurrency from '../util';
 import Fade from 'react-reveal/Fade';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../actions/cartActions';
 
-export default class Cart extends Component {
+class Cart extends Component {
     constructor() {
         super();
         this.state = {
@@ -37,7 +39,7 @@ export default class Cart extends Component {
                     </div>
                 )}
                 <div>
-                    <div classNam="cart">
+                    <div className="cart">
                         <Fade left cascade>
                             <ul className="cart-items">
                                 {cartItems.map(item => (
@@ -107,3 +109,9 @@ export default class Cart extends Component {
         )
     }
 }
+
+export default connect((state) => ({
+    cartItems: state.cartItems,
+}),
+removeFromCart
+)(Cart);
