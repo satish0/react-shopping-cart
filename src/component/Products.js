@@ -32,7 +32,7 @@ class Products extends Component {
                     (<div>Loading...</div>
                         ) : (
                         <ul className="products">
-                            {this.props.products.map(product => 
+                            {this.props.products.map((product) => (
                                 <li key={product._id}>
                                     <div className="product">
                                         <a 
@@ -45,15 +45,15 @@ class Products extends Component {
                                         <div className="product-price">
                                             <div>{formatCurrency(product.price)}</div>
                                             <button 
-                                                className="button primary" 
                                                 onClick={() => this.props.addToCart(product)} 
+                                                className="button primary" 
                                             >
                                                 Add to Cart
                                             </button>
                                         </div>
                                     </div>
                                 </li>
-                            )}
+                            ))}
                         </ul>
                         )}
                 </Fade>
